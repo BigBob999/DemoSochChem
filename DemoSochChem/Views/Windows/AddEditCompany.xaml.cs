@@ -61,6 +61,7 @@ namespace DemoSochChem.Views.Windows
                     IsManufacture = IsManufactureCb.IsChecked.Value
                   
                 };
+
             }
 
 
