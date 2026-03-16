@@ -1,0 +1,34 @@
+﻿<Window x:Class="DemoSochChem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoSochChem"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="900" Width="1300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+
+        <Button Name="CompaniesPage" Grid.Column="0" Content="Компании" Click="CompaniesPage_Click"/>
+        <Button Name="ManufacturePage" Grid.Column="2" Content="Производители" Click="ManufacturePage_Click"/>
+        <Button Name="OrdersPage" Grid.Column="4" Content="Заказы" Click="OrdersPage_Click"/>
+        <Button Name="Page" Grid.Column="6" Content="Спецификация" Click="Page_Click"/>
+
+        <Frame Name="MainFrame" Grid.Row="2" Grid.ColumnSpan="10" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated" Margin="20"/>
+
+    </Grid>
+</Window>

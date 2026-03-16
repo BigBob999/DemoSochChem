@@ -1,0 +1,44 @@
+﻿<Page x:Class="DemoSochChem.Views.Pages.CompaniesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoSochChem.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="784" d:DesignWidth="1560"
+      Title="Компании">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Name="AddCompany" Grid.Column="0" Content="Добавить" Click="AddCompany_Click"/>
+            <Button Name="EditCompany" Grid.Column="2" Content="Редактировать" Click="EditCompany_Click"/>
+            <Button Name="RemoveCompany" Grid.Column="4" Content="Удалить" Click="RemoveCompany_Click"/>
+        </Grid>
+        <ListView Name="CompaniesLv" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="ИНН" DisplayMemberBinding="{Binding Insurance}"/>
+                    <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Адресс" DisplayMemberBinding="{Binding Adress}"/>
+                    <GridViewColumn Header="Тип компании" DisplayMemberBinding="{Binding CompanyType}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Page>
