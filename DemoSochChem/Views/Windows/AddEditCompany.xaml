@@ -37,7 +37,7 @@
         <TextBox Name="IncuranceTb" Text="{Binding Insurance}" Grid.Column="2" Grid.Row="2"/>
 
         <TextBlock Text="Телефон:" Grid.Row="4"/>
-        <TextBox Name="PhoneTb" Grid.Column="2" Text="{Binding Phont}" Grid.Row="4"/>
+        <TextBox Name="PhoneTb" Grid.Column="2" Text="{Binding Phone}" Grid.Row="4"/>
 
         <TextBlock Text="Адрес:" Grid.Row="6"/>
         <TextBox Name="AddressTb" Text="{Binding Adress}" Grid.Column="2" Grid.Row="6"/>
@@ -46,7 +46,7 @@
 
         <CheckBox Name="IsManufactureCb" IsChecked="{Binding IsManufacture}" Grid.Column="2" Grid.Row="10" Content="Производитель"/>
 
-        <Button Name="EditCompanyBtn" Grid.Row="12" Grid.Column="2" Visibility="Hidden" Click="EditCompanyBtn_Click"/>
+        <Button Name="EditCompanyBtn" Grid.Row="12" Grid.Column="2" Content="Редактировать" Visibility="Hidden" Click="EditCompanyBtn_Click"/>
         <Button Name="AddCompanyBtn" Content="Добавить компанию" Grid.Row="12" Grid.Column="2" Visibility="Visible" Click="AddCompanyBtn_Click"/>
 
     </Grid>

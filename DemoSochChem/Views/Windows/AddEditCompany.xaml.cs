@@ -50,6 +50,10 @@ namespace DemoSochChem.Views.Windows
         {
           if(Validate())
 
+              
+                MessageBox.Show("Данные компании успешно обновлены");
+          
+
             {
                 Company newCompany = new Company()
                 {

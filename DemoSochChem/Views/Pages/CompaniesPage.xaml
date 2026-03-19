@@ -23,10 +23,24 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="10" />
                 <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="20" />
+                
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
             <Button Name="AddCompany" Grid.Column="0" Content="Добавить" Click="AddCompany_Click"/>
             <Button Name="EditCompany" Grid.Column="2" Content="Редактировать" Click="EditCompany_Click"/>
             <Button Name="RemoveCompany" Grid.Column="4" Content="Удалить" Click="RemoveCompany_Click"/>
+            <TextBlock Grid.Column="8" Text="Поиск:"/>
+            <TextBox Name="SearchTb" Grid.Column="10" TextChanged="SearchTb_TextChanged"/>
+
+            <TextBlock Grid.Column="12" Text="Фильтр:"/>
+            <ComboBox Grid.Column="14" Name="FilterCmb" SelectionChanged="FilterCmb_SelectionChanged"/>
         </Grid>
         <ListView Name="CompaniesLv" Grid.Row="2">
             <ListView.View>
@@ -39,6 +53,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
+        
     </Grid>
 </Page>

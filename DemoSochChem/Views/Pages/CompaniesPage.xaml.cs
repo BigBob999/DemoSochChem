@@ -31,8 +31,8 @@ namespace DemoSochChem.Views.Pages
 
         private void AddCompany_Click(object sender, RoutedEventArgs e)
         {
-            AddEditCompany addCompany = new AddEditCompany(); 
-           if( addCompany.ShowDialog() == true)
+            AddEditCompany addCompany = new AddEditCompany();
+            if (addCompany.ShowDialog() == true)
             {
                 LoadData();
             }
@@ -41,11 +41,16 @@ namespace DemoSochChem.Views.Pages
 
         private void EditCompany_Click(object sender, RoutedEventArgs e)
         {
-          Company selectedCompany = (Company)CompaniesLv.SelectedItem;
+            Company selectedCompany = (Company)CompaniesLv.SelectedItem;
             if (selectedCompany != null)
             {
-             AddEditCompany addEditCompany = new AddEditCompany(selectedCompany);
+                AddEditCompany addEditCompany = new AddEditCompany(selectedCompany);
                 addEditCompany.ShowDialog();
+            }
+
+            else
+            {
+                MessageBox.Show("Сначала выберите компанию");
             }
 
         }
@@ -55,15 +60,46 @@ namespace DemoSochChem.Views.Pages
             Company selectedCompany = (Company)CompaniesLv.SelectedItem;
             if (selectedCompany != null)
             {
-              App.context.Company.Remove(selectedCompany);
-                App.context.SaveChanges();
-                MessageBox.Show("Компания успешно удалена.");
+                try
+                {
+
+                    App.context.Company.Remove(selectedCompany);
+                    App.context.SaveChanges();
+                    MessageBox.Show("Компания успешно удалена.");
+                    LoadData();
+                }
+                catch
+
+                {
+                    MessageBox.Show("Невозможно удалить компанию");
+                }
+               
             }
         }
         private void LoadData()
         {
             _companies = App.context.Company.ToList();
             CompaniesLv.ItemsSource = _companies;
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchString = SearchTb.Text.ToLower();
+            if(string.IsNullOrWhiteSpace(searchString))
+            {
+                LoadData();
+                return;
+            }
+            var filteredList = _companies.Where(Company => Company.Name.ToLower().Contains(searchString) ||
+          Company.Insurance.ToLower().Contains(searchString) ||
+          Company.Adress.ToLower().Contains(searchString) ||
+          Company.Phone.ToLower().Contains(searchString) ).ToList();
+            CompaniesLv.ItemsSource =filteredList;
+        }
+
+        private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
