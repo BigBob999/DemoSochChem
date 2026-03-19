@@ -61,7 +61,10 @@ namespace DemoSochChem.Views.Windows
                     IsManufacture = IsManufactureCb.IsChecked.Value
                   
                 };
-
+                App.context.Company.Add(newCompany);
+                App.context.SaveChanges();
+                MessageBox.Show("Компания успешно добавлена");
+                DialogResult = true;
             }
 
 

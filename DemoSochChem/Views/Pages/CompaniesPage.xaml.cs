@@ -52,7 +52,13 @@ namespace DemoSochChem.Views.Pages
 
         private void RemoveCompany_Click(object sender, RoutedEventArgs e)
         {
-
+            Company selectedCompany = (Company)CompaniesLv.SelectedItem;
+            if (selectedCompany != null)
+            {
+              App.context.Company.Remove(selectedCompany);
+                App.context.SaveChanges();
+                MessageBox.Show("Компания успешно удалена.");
+            }
         }
         private void LoadData()
         {
