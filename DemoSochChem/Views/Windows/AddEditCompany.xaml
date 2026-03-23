@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DemoSochChem.Views.Windows"
         mc:Ignorable="d"
         Title="Добавить/Редактировать данные компании" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Margin="20">
+    <Grid Margin="21">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="10" />
