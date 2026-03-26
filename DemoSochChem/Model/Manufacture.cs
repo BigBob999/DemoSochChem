@@ -17,6 +17,13 @@ namespace DemoSochChem.Model
         public int Id { get; set; }
         public int ItemId { get; set; }
         public bool IsProduct { get; set; }
+        public string IsProduct1
+        {
+            get
+            {
+                return IsProduct == true ? "Товар" : "Не товар";
+            }
+        }
         public string Code { get; set; }
     
         public virtual Material Material { get; set; }

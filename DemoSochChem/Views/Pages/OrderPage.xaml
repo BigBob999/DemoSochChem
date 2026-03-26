@@ -5,10 +5,53 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoSochChem.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="OrderPage">
+           d:DesignHeight="784" d:DesignWidth="1560"
+Title="Производство">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="20" />
+
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+            <Button Name="AddOrderBtn" Click="AddOrderBtn_Click"  Grid.Column="0" Content="Добавить" />
+            <Button Name="EditOrder" Click="EditOrder_Click"  Grid.Column="2" Content="Редактировать" />
+            <Button Name="Removeorder" Click="Removeorder_Click"  Grid.Column="4" Content="Удалить" />
+            <TextBlock Grid.Column="8" Text="Поиск:"/>
+            <TextBox Name="SearchTb" Grid.Column="10" TextChanged="SearchTb_TextChanged"/>
+
+            <TextBlock Grid.Column="12" Text="Фильтр:"/>
+            <ComboBox Grid.Column="14" Name="FilterCmb" SelectionChanged="FilterCmb_SelectionChanged"/>
+        </Grid>
+        <ListView Name="OrderLv" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding Number}"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Стоимость" Width="130" DisplayMemberBinding="{Binding TotalPrice}"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Page>

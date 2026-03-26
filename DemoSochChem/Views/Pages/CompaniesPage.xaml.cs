@@ -22,11 +22,22 @@ namespace DemoSochChem.Views.Pages
     /// </summary>
     public partial class CompaniesPage : Page
     {
+        string selectedCompanyType;
         private List<Company> _companies;
+        private List<string> _companyTypes = new List<string>()
+        {
+            "Все",
+            "Клиент",
+            "Производитель"
+        };
         public CompaniesPage()
         {
             InitializeComponent();
             LoadData();
+
+
+            FilterCmb.ItemsSource = _companyTypes;
+            FilterCmb.SelectedIndex = 0;
         }
 
         private void AddCompany_Click(object sender, RoutedEventArgs e)
@@ -79,7 +90,16 @@ namespace DemoSochChem.Views.Pages
         private void LoadData()
         {
             _companies = App.context.Company.ToList();
-            CompaniesLv.ItemsSource = _companies;
+            if (selectedCompanyType == "Все")
+            {
+                CompaniesLv.ItemsSource = _companies;
+            }
+            else
+            {
+                CompaniesLv.ItemsSource = _companies.Where(c => c.CompanyType == selectedCompanyType);
+            }
+ 
+            
         }
 
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
@@ -99,7 +119,9 @@ namespace DemoSochChem.Views.Pages
 
         private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            selectedCompanyType = FilterCmb.SelectedItem.ToString(); 
 
+            LoadData();
         }
     }
 }

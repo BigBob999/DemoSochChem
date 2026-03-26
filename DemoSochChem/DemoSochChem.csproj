@@ -82,6 +82,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Windows\AddEditManufacture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\AddEditOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +112,12 @@
     </Compile>
     <Compile Include="Views\Windows\AddEditCompany.xaml.cs">
       <DependentUpon>AddEditCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\AddEditManufacture.xaml.cs">
+      <DependentUpon>AddEditManufacture.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\AddEditOrderWindow.xaml.cs">
+      <DependentUpon>AddEditOrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
